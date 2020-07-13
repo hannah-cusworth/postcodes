@@ -6,5 +6,10 @@ from django.shortcuts import render
 class MainView(TemplateView):
 	template_name = "postcode_site/index.html"
 	def get(self, request):
-		return render(request, self.template_name)
+		context = {"postcode":"Nothing yet..."}
+		return render(request, self.template_name, context)
 
+	def post(self, request):
+		postcode = request.POST["postcode_input"].strip()
+		context = {"postcode": postcode}
+		return render(request, self.template_name, context)

@@ -4,5 +4,13 @@
 	</head>
 
 <body>
-	<h1>Hello, world!</h1>
+	<h1>Postcodes R Us</h1>
+	<form action="/" method="POST">
+		{% csrf_token %}
+		<label for="postcode">Enter a Postcode</label><br>
+		<input type="text" name="postcode_input"><br>
+		<input type="submit" value="Submit">
+
+	</form>
+<p>{{postcode }}</p>
 </body>
