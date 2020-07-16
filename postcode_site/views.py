@@ -4,7 +4,7 @@ from django.shortcuts import render
 
 
 class MainView(TemplateView):
-	template_name = "postcode_site/index.html"
+	template_name = "postcode_site/map.html"
 	def get(self, request):
 		context = {"postcode":"Nothing yet..."}
 		return render(request, self.template_name, context)
@@ -13,3 +13,8 @@ class MainView(TemplateView):
 		postcode = request.POST["postcode_input"].strip()
 		context = {"postcode": postcode}
 		return render(request, self.template_name, context)
+
+class MapView(TemplateView):
+	template_name = "postcode_site/map.html"
+	def get(self, request):
+		return render(request, self.template_name)

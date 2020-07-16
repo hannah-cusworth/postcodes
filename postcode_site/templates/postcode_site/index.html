@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 	<head>
 		<title>Postcodes!</title>
+		{% load static %}
+		{% block mapheader %}{% endblock %}
+		<link rel="stylesheet" type="text/css" href="{% static 'styles/main.css'%}?{% now 'u' %}">
 	</head>
 
 <body>
@@ -12,5 +15,10 @@
 		<input type="submit" value="Submit">
 
 	</form>
-<p>{{postcode }}</p>
+	<p>{{postcode }}</p>
+	<br><br>
+	{% block mapdiv %}{% endblock %}
+	{% block mapscript %} {% endblock %}
 </body>
+
+
